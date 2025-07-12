@@ -6,7 +6,11 @@ Java Restful API
 ```mermaid
 classDiagram
   class User {
-    +String name
+    String name
+    Account account
+    Card card
+    Features[] features
+    News[] news
   }
 
   class Account {
