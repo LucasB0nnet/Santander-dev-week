@@ -2,9 +2,12 @@ package me.dio.service;
 
 import java.util.NoSuchElementException;
 
+import org.springframework.stereotype.Service;
+
 import me.dio.domain.model.User;
 import me.dio.domain.repository.UserRepository;
 
+@Service
 public class UserServImpl implements UserService{
 
 	private final UserRepository userRepository;
@@ -20,7 +23,7 @@ public class UserServImpl implements UserService{
 
 	@Override
 	public User create(User user) {
-		if(user != null && userRepository.existsById(user.getId())) {
+		if(user.getId() != null && userRepository.existsById(user.getId())) {
 			throw new IllegalArgumentException("This user already exists.");
 		}
 		return userRepository.save(user);
